@@ -5,6 +5,7 @@ export const CHANGE_OPERATION = "CHANGE_OPERATION";
 export const CLEAR_NUMBER="CLEAR_NUMBER";
 export const SET_MEMORY= "SET_MEMORY";
 export const APPLY_MEM= "APPLY_MEM";
+export const CLEAR_MEM= "CLEAR_MEM";
 
 export const addOne = () => {
     return({type:ADD_ONE});
@@ -28,4 +29,8 @@ export const setMem = (number) => {
 
 export const applyMem = (memory) => {
     return({type:APPLY_MEM, payload:memory});
+}
+
+export const clearMem = (memory) => {
+    return({type:CLEAR_MEM});
 }
