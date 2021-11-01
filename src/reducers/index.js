@@ -8,7 +8,7 @@ export const initialState = {
 
 const calculateResult = (num1, num2, operation) => {
     switch(operation) {
-        case(ADD_ONE):
+        case('+'):
             return num1 + num2;
         case("*"):
             return num1 * num2;
@@ -20,12 +20,15 @@ const calculateResult = (num1, num2, operation) => {
 const reducer = (state, action) => {
     switch(action.type) {
         case(ADD_ONE):
+        console.log('this here')
             return({
                 ...state,
                 total: state.total + 1
             });
 
         case(APPLY_NUMBER):
+        console.log('this 2 here')
+
             return ({ 
                 ...state, 
                 total: calculateResult(state.total, action.payload, state.operation)
