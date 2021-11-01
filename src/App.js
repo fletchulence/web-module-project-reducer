@@ -7,7 +7,7 @@ import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 
 //! import actions
-import { addOne, applyNumber } from './actions'
+import { addOne, applyNumber, changeOperation, clearAll } from './actions'
 
 function App() {
   //? setting state as dispatch
@@ -15,9 +15,17 @@ function App() {
   console.log(state)
 
   //setting event handlers
-  const handleApplyNum = (value) =>{
-    dispatch(applyNumber(value))
-    console.log()
+  const handleApplyNum = (e) =>{
+    console.log(e)
+    dispatch(applyNumber(e))
+  }
+
+  const handleChangeOperation = (e) =>{
+    dispatch(changeOperation(e))
+  }
+
+  const handleClear = () =>{
+    dispatch(clearAll())
   }
 
   return (
@@ -44,30 +52,30 @@ function App() {
 
             <div className="row">
               <CalcButton onClick={()=>handleApplyNum(1)} value={1}/>
-              <CalcButton value={2}/>
-              <CalcButton value={3}/>
+              <CalcButton onClick={()=>handleApplyNum(2)} value={2}/>
+              <CalcButton onClick={()=>handleApplyNum(3)} value={3}/>
             </div>
 
             <div className="row">
-              <CalcButton value={4}/>
-              <CalcButton value={5}/>
-              <CalcButton value={6}/>
+              <CalcButton onClick={()=>handleApplyNum(4)} value={4}/>
+              <CalcButton onClick={()=>handleApplyNum(5)} value={5}/>
+              <CalcButton onClick={()=>handleApplyNum(6)} value={6}/>
             </div>
 
             <div className="row">
-              <CalcButton value={7}/>
-              <CalcButton value={8}/>
-              <CalcButton value={9}/>
+              <CalcButton onClick={()=>handleApplyNum(7)} value={7}/>
+              <CalcButton onClick={()=>handleApplyNum(8)} value={8}/>
+              <CalcButton onClick={()=>handleApplyNum(9)} value={9}/>
             </div>
 
             <div className="row">
-              <CalcButton value={"+"}/>
-              <CalcButton value={"*"}/>
-              <CalcButton value={"-"}/>
+              <CalcButton onClick={()=>handleChangeOperation('+')} value={"+"}/>
+              <CalcButton onClick={()=>handleChangeOperation('*')} value={"*"}/>
+              <CalcButton onClick={()=>handleChangeOperation('-')} value={"-"}/>
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"}/>
+              <CalcButton onClick={()=>handleClear(0)} value={"CE"}/>
             </div>
 
           </form>
