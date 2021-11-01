@@ -7,16 +7,16 @@ import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 
 //! import actions
-import { addOne, applyNumber, changeOperation, clearAll, setMem, applyMem, clearMem } from './actions'
+import { /* addOne, */ applyNumber, changeOperation, clearAll, setMem, applyMem, clearMem } from './actions'
 
 function App() {
   //? setting state as dispatch
   const [ state, dispatch ] = useReducer(reducer, initialState);
   console.log(state)
 
-  //setting event handlers
+  //TODO: setting event handlers
   const handleApplyNum = (e) =>{
-    console.log(e)
+    // console.log(e)
     dispatch(applyNumber(e))
   }
 
