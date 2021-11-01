@@ -7,7 +7,7 @@ import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 
 //! import actions
-import { addOne, applyNumber, changeOperation, clearAll } from './actions'
+import { addOne, applyNumber, changeOperation, clearAll, setMem, applyMem } from './actions'
 
 function App() {
   //? setting state as dispatch
@@ -28,6 +28,14 @@ function App() {
     dispatch(clearAll())
   }
 
+  const handleSetMem =(e)=>{
+    dispatch(setMem(e))
+  }
+
+  const handleApplyMem =(e)=>{
+    dispatch(applyMem(e))
+  }
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -45,8 +53,8 @@ function App() {
             </div>
             
             <div className="row">
-              <CalcButton value={"M+"}/>
-              <CalcButton value={"MR"}/>
+              <CalcButton onClick={()=>handleSetMem()} value={"M+"}/>
+              <CalcButton onClick={()=>handleApplyMem()} value={"MR"}/>
               <CalcButton value={"MC"}/>
             </div>
 
@@ -75,7 +83,7 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton onClick={()=>handleClear(0)} value={"CE"}/>
+              <CalcButton onClick={()=>handleClear()} value={"CE"}/>
             </div>
 
           </form>
