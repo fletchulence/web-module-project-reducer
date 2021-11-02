@@ -14,12 +14,13 @@ function App() {
   const [ state, dispatch ] = useReducer(reducer, initialState);
   console.log(state)
 
-  //TODO: setting event handlers
+  //! setting event handlers
   const handleApplyNum = (e) =>{
     // console.log(e)
     dispatch(applyNumber(e))
   }
 
+  //? we've now 
   const handleChangeOperation = (e) =>{
     dispatch(changeOperation(e))
   }
@@ -57,7 +58,8 @@ function App() {
             </div>
             
             <div className="row">
-              <CalcButton onClick={()=>handleSetMem()} value={"M+"}/>
+{/*      //!this is where the operation is being instantiated when the user clicks the button
+ */}              <CalcButton onClick={()=>handleSetMem()} value={"M+"}/>
               <CalcButton onClick={()=>handleApplyMem()} value={"MR"}/>
               <CalcButton onClick={()=>handleClearMem()} value={"MC"}/>
             </div>
